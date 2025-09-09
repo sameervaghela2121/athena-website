@@ -1,0 +1,5 @@
+node_modules
+.next
+.env
+out/*
+dev-genai-sandbox-434618-c1f15206cdb5.json
