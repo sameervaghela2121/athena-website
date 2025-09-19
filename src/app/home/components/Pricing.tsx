@@ -179,11 +179,11 @@ const Pricing = () => {
 
   // Business plan features
   const businessPlanFeatures = [
-    "Full Access to All Athena Features",
+    "Key Athena Features",
     "Buy Extra Queries",
     "Support a wide number of formats supported, text, pdf, word, powerpoint, excel, images, video & more...",
     "No limit on the number of users",
-    "Support with a dedicated application for your users on iOS and Android",
+    "Free dedicated app on iOS and Android",
     "24/7 priority support",
   ];
 
