@@ -188,7 +188,7 @@ const Pricing = () => {
   ];
 
   const enterprisePlanFeatures = [
-    "All the features of Business Standard Plan",
+    "All the features of Business Standard",
     "Support Custom ID systems (e.g., Okta, Entra)",
     "Support Complex Corporate Hierarchies",
     "Custom Dashboards and Analytics",
@@ -243,7 +243,7 @@ const Pricing = () => {
           {/* Business Standard Plan */}
           <div className="overflow-hidden relative bg-white rounded-2xl border-2 border-blue-800 shadow-lg transition-shadow duration-300 hover:shadow-xl flex flex-col h-full">
             <div className="p-4 text-white border-2 bg-primary-900 border-primary-900">
-              <h3 className="text-xl font-bold">Business Standard Plan</h3>
+              <h3 className="text-xl font-bold">Business Standard</h3>
             </div>
             <div className="p-3 sm:p-8 flex-1 flex flex-col">
               {error && (
@@ -556,7 +556,6 @@ const Pricing = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
