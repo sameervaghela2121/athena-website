@@ -30,7 +30,7 @@ const HeroBanner = () => {
               onClick={() =>
                 // open new tab
                 window.open(
-                  `${process.env.NEXT_PUBLIC_APP_URL}/login`,
+                  `${process.env.NEXT_PUBLIC_APP_URL}/register`,
                   "_blank",
                 )
               }

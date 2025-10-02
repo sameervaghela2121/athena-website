@@ -3,6 +3,7 @@
 import { Button, Select } from "@/common";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 // Helper function to format numbers with commas
 const formatNumber = (num: number) => {
@@ -135,11 +136,11 @@ const Pricing = () => {
           label: (
             <div className="flex justify-between items-center w-full">
               <p>{defaultPlan.name}</p>
-              {defaultPlan.is_default && (
+              {/* {defaultPlan.is_default && (
                 <span className="px-2 py-0.5 sm:px-4 sm:py-1 rounded-full text-[10px] sm:text-xs text-white border border-[#085F9D] bg-[linear-gradient(90deg,#036_0%,#06C_100%)] shadow-[inset_0_4px_4px_0_rgba(0,77,94,0.25)]">
                   2 Month Free
                 </span>
-              )}
+              )} */}
             </div>
           ),
           price: defaultPlan.subscription_amount,
@@ -172,10 +173,8 @@ const Pricing = () => {
 
   // Find default plan
   const defaultPlan = useMemo(() => {
-    return plansOptions.find((plan: any) => plan.price === 0) || null;
+    return plansOptions.find((plan) => plan.is_default) || null;
   }, [plansOptions]);
-
-  console.info("defaultPlan =>", defaultPlan);
 
   // Business plan features
   const businessPlanFeatures = [
@@ -202,7 +201,7 @@ const Pricing = () => {
     setIsSubmitting(true);
     // In a real implementation, this would call an API to process the subscription
     window.open(
-      `${process.env.NEXT_PUBLIC_APP_URL}/login?dpId=${selectedQueryOption?.value}`,
+      `${process.env.NEXT_PUBLIC_APP_URL}/register?dpId=${selectedQueryOption?.value}`,
       "_blank"
     );
     setIsSubmitting(false);
@@ -229,12 +228,12 @@ const Pricing = () => {
             accommodating your part-time workers.
           </p>
           <div className="mt-4">
-            <a
+            <Link
               href="/how-athena-pricing-works"
               className="text-primary-900 hover:text-primary-800 underline"
             >
               How Athena Pricing works, explained
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -261,20 +260,20 @@ const Pricing = () => {
                   {/* Per User Pricing */}
                   {!isPerUserPricingLoading &&
                     !!perUserPricing.cost_per_user_per_month && (
-                      <div className="mb-2">
-                        <span className="text-4xl font-bold text-primary-900">
-                          {perUserPricing.unit}
-                          {perUserPricing.cost_per_user_per_month}
-                        </span>
+                    <div className="mb-2">
+                      <span className="text-4xl font-bold text-primary-900">
+                        {perUserPricing.unit}
+                        {perUserPricing.cost_per_user_per_month}
+                      </span>
                         <span className="text-sm text-tertiary-600">
                           {" "}
                           / Per User / Month
                         </span>
-                      </div>
-                    )}
+                    </div>
+                  )}
 
                   {/* Queries Per Month Section */}
-                  <div className="mb-6">
+                  <div className="mb-2">
                     <div className="flex items-center mb-6">
                       <svg
                         className="mr-2 w-5 h-5 text-blue-800"
@@ -310,16 +309,7 @@ const Pricing = () => {
                             value: selectedQueryOption?.value,
                             label: (
                               <div className="flex justify-between items-center w-full">
-                                <div className="w-full text-xs sm:text-sm">
-                                  {selectedQueryOption?.label}
-                                </div>
-                                {!selectedQueryOption?.is_default && (
-                                  <p className="px-2 py-0.5 sm:px-4 sm:py-1 rounded-full text-[10px] sm:text-xs text-[#4DA3C7] bg-[#D9F0F9]">
-                                    {`Extra ${formatNumber(
-                                      defaultPlan?.chat_limit || 0
-                                    )} queries for 2 months`}
-                                  </p>
-                                )}
+                                <p className="w-full text-xs sm:text-sm">{selectedQueryOption?.label}</p>
                               </div>
                             ),
                           }}
@@ -355,9 +345,6 @@ const Pricing = () => {
                             IndicatorSeparator: () => null,
                             Option: ({ children, ...props }: any) => {
                               const data: any = props.data;
-                              const plan = plansOptions.find(
-                                (p) => p.value === data.value
-                              );
                               return (
                                 <div
                                   {...props.innerProps}
@@ -367,17 +354,8 @@ const Pricing = () => {
                                       : "bg-transparent"
                                   }`}
                                 >
-                                  <div className="flex items-center justify-between w-full">
-                                    <span className="ml-2 text-gray-900">
-                                      ${plan?.price}/month -{" "}
-                                      {formatNumber(plan?.chat_limit || 0)}{" "}
-                                      queries
-                                    </span>
-                                    {plan?.is_default && (
-                                      <span className="px-2 py-0.5 rounded-full text-[10px] text-white border border-[#085F9D] bg-[linear-gradient(90deg,#036_0%,#06C_100%)] shadow-[inset_0_4px_4px_0_rgba(0,77,94,0.25)]">
-                                        2 Month Free
-                                      </span>
-                                    )}
+                                  <div className="flex items-center">
+                                    <span className="ml-2 w-full text-gray-900">{data.label}</span>
                                   </div>
                                 </div>
                               );
@@ -389,7 +367,7 @@ const Pricing = () => {
                   </div>
 
                   {/* Price Summary */}
-                  <div className="p-3 my-4 bg-gray-50 rounded-md">
+                    <div className="p-3 mb-4 bg-gray-50 rounded-md">
                     {selectedQueryOption?.is_default ? null : (
                       <div className="flex justify-between items-center">
                         <span className="text-base font-medium">
@@ -398,14 +376,14 @@ const Pricing = () => {
                       </div>
                     )}
                     <p className="text-sm text-gray-600">
-                      {selectedQueryOption?.is_default
+              {selectedQueryOption?.is_default
                         ? "Enjoy 2 months free."
                         : "billing starts after the free plan ends"}
                     </p>
-                  </div>
+                    </div>
 
                   {/* Features List */}
-                  <div className="mb-4 flex-1">
+                  <div className="mb-4">
                     <div className="flex gap-x-2 items-center mb-4 pl-[6px]">
                       <svg
                         className="w-5 h-5 text-blue-800"
@@ -429,38 +407,24 @@ const Pricing = () => {
                     <ul className="pl-1 space-y-3">
                       {businessPlanFeatures.map((feature, index) => (
                         <li key={index} className="flex gap-x-2 items-start">
-                          <span>
-                            <svg
-                              className="w-5 h-5 text-green-500"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M5 13l4 4L19 7"
-                              ></path>
-                            </svg>
-                          </span>
-                          <span className="text-sm text-gray-800">
-                            {feature}
-                          </span>
+                          <svg
+                            className="w-5 h-5 text-green-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                          <span className="text-sm text-gray-800">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* CTA Button */}
-                  <div className="mt-auto pt-8">
-                    <Button
-                      variant="primary"
-                      className="w-full"
-                      onClick={handleSubmit}
-                      disabled={isSubmitting}
-                    >
+                  <div className="mt-8">
+                    <Button variant="primary" className="w-full" onClick={handleSubmit} disabled={isSubmitting}>
                       {isSubmitting ? (
                         <div className="flex justify-center items-center">
                           <div className="mr-2 w-5 h-5 rounded-full border-t-2 border-b-2 border-white animate-spin"></div>
@@ -476,12 +440,12 @@ const Pricing = () => {
             </div>
           </div>
 
-          {/* Large Enterprise */}
-          <div className="bg-white rounded-2xl shadow-lg border-2 border-[#6F42C1] hover:shadow-xl transition-shadow duration-300 relative overflow-hidden flex flex-col h-full">
+          {/* Enterprise Scale */}
+          <div className="bg-white rounded-2xl shadow-lg border-2 border-[#6F42C1] hover:shadow-xl transition-shadow duration-300 relative overflow-hidden">
             <div className="bg-[#6F42C1] text-white p-4 border-2 border-[#6F42C1]">
               <h3 className="text-xl font-bold">Large Enterprise</h3>
             </div>
-            <div className="p-3 sm:p-8 flex-1 flex flex-col">
+            <div className="p-3 sm:p-8">
               <div className="mb-8">
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-gray-900">
@@ -503,14 +467,14 @@ const Pricing = () => {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                        stroke="#003366"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <path
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      stroke="#003366"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                   </span>
                   <span className="text-base font-medium text-gray-900">
                     What&apos;s included:
@@ -521,20 +485,20 @@ const Pricing = () => {
                   {enterprisePlanFeatures.map((feature, index) => (
                     <li key={index} className="flex gap-x-2 items-start">
                       <span>
-                        <svg
-                          className="w-5 h-5 text-green-500"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                      <svg
+                        className="w-5 h-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth="2"
                             d="M5 13l4 4L19 7"
                           ></path>
-                        </svg>
+                      </svg>
                       </span>
                       <span className="text-sm text-gray-800">{feature}</span>
                     </li>
@@ -550,8 +514,8 @@ const Pricing = () => {
                     router.push("#contact");
                   }}
                 >
-                  Contact Sales
-                </Button>
+                    Contact Sales
+                  </Button>
               </div>
             </div>
           </div>
