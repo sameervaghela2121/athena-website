@@ -418,7 +418,7 @@ const HowItWorks = () => {
                   patterns before committing to a paid plan.
                 </p>
                 <a
-                  href={`${process.env.NEXT_PUBLIC_APP_URL}/login`}
+                  href={`${process.env.NEXT_PUBLIC_APP_URL}/register`}
                   className="bg-primary-900 hover:bg-primary-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-medium w-full sm:w-auto"
                 >
                   Try Athena for Free
