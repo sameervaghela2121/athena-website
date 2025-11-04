@@ -181,7 +181,7 @@ const Pricing = () => {
   const businessPlanFeatures = [
     "Key Athena Features",
     "Buy Extra Queries",
-    "Support a wide number of formats supported, text, pdf, word, powerpoint, excel, images, video & more...",
+    "Support a wide number of formats, including text, pdf, word, video & more",
     "No limit on the number of users",
     "Free dedicated app on iOS and Android",
     "24/7 priority support",
