@@ -27,13 +27,34 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* Disable Pinch Zoom on Mobile Web */}
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-      />
-      <meta name="HandheldFriendly" content="true" />
-      <link rel="icon" href="/favicon.png" sizes="any" />
+      <head>
+        {/* Disable Pinch Zoom on Mobile Web */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta name="HandheldFriendly" content="true" />
+        <link rel="icon" href="/favicon.png" sizes="any" />
+
+        {/* Apollo.io Website Tracker */}
+        <Script
+          id="apollo-tracker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function initApollo(){
+                var n=Math.random().toString(36).substring(7),
+                o=document.createElement("script");
+                o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,
+                o.async=!0,o.defer=!0,
+                o.onload=function(){window.trackingFunctions.onLoad({appId:"68bb7956748b38001d609e85"})},
+                document.head.appendChild(o)
+              }
+              initApollo();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{
