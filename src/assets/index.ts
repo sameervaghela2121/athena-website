@@ -1,4 +1,5 @@
 import AIBrain from "./images/AIBrain.svg";
+import AIBrain2 from "./images/AIBrain2.png";
 import arrowUp from "./images/arrowUp.svg";
 import bannerImg from "./images/bannerImg.svg";
 import bigEye from "./images/bigEye.svg";
@@ -31,6 +32,7 @@ const allImgPaths = (() => ({
   bigEye,
   rocket,
   AIBrain,
+  AIBrain2,
   values,
   bannerImg,
   sendMessage,

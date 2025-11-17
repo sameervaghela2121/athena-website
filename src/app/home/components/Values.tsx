@@ -116,7 +116,7 @@ const Values = () => {
                 </div>
                 <div className="flex justify-center">
                   <Image
-                    src={allImgPaths.AIBrain}
+                    src={allImgPaths.AIBrain2}
                     alt="scalable"
                     className="w-full"
                   />
