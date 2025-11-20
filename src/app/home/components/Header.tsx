@@ -72,6 +72,15 @@ const Header = () => {
             <Link href="/#contact" className="font-semibold text-primary-900 hover:underline">
               Contact Us
             </Link>
+            <Link href="/retail" className="font-semibold text-primary-900 hover:underline">
+              Retail
+            </Link>
+            <Link href="/qsr" className="font-semibold text-primary-900 hover:underline">
+              QSR
+            </Link>
+            <Link href="/hospitality" className="font-semibold text-primary-900 hover:underline">
+              Hospitality
+            </Link>
           </div>
           <div className="flex gap-x-2 items-center">
             <Link
@@ -138,6 +147,7 @@ const Header = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
+
                 </div>
 
                 {/* Divider */}

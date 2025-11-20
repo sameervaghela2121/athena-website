@@ -214,6 +214,7 @@ const Pricing = () => {
           <h2 className="mb-4 text-3xl font-bold text-gray-900 lg:text-4xl xl:text-5xl">
             Try AthenaPro Free for 2 Months
           </h2>
+          
           <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#036] via-[#409ED0] to-[#36a6e2] mb-4">
             Scale When You&apos;re Ready.
           </h3>
