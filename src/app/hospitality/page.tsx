@@ -18,6 +18,7 @@ import {
   HeadphonesIcon,
   Globe,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function HospitalityPage() {
   const enterpriseFeatures = [
@@ -52,6 +53,9 @@ export default function HospitalityPage() {
       description: "Continuously evolving with the latest AI advancements. Regular updates ensure you're always leveraging cutting-edge knowledge management technology."
     }
   ];
+  const handleGetStarted = () => {
+    window.open("https://app.athenapro.ai", "_blank");
+  };
 
   return (
     <>
@@ -71,12 +75,12 @@ export default function HospitalityPage() {
                 service standards, and property information—delivering exceptional experiences every time.
               </p>
               <div className="flex gap-4">
-                <Button className="gap-2">
+                <Button className="gap-2" onClick={handleGetStarted}>
                   Get Started
                 </Button>
-                <Button variant="tertiary">
+                <Link href="/#features"><Button variant="tertiary">
                   Learn More
-                </Button>
+                </Button></Link>
               </div>
             </div>
             <div className="relative">

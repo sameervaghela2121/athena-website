@@ -17,6 +17,7 @@ import {
   BarChart3,
   Package,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function RetailPage() {
   const enterpriseFeatures = [
@@ -51,6 +52,9 @@ export default function RetailPage() {
       description: "Continuously evolving with the latest AI advancements. Regular updates ensure you're always leveraging cutting-edge knowledge management technology."
     }
   ];
+  const handleGetStarted = () => {
+    window.open("https://app.athenapro.ai", "_blank");
+  };
   return (
     <>
       <Header />
@@ -67,12 +71,12 @@ export default function RetailPage() {
                 inventory updates, and customer service protocols—all powered by AI.
               </p>
               <div className="flex gap-4">
-                <Button className="gap-2">
+                <Button className="gap-2" onClick={handleGetStarted}>
                   Get Started
                 </Button>
-                <Button variant="tertiary">
+                <Link href="/#features"><Button variant="tertiary">
                   Learn More
-                </Button>
+                </Button></Link>
               </div>
             </div>
             <div className="relative">

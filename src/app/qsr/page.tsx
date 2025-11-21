@@ -15,6 +15,7 @@ import {
   Clock,
   BookOpen,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function QSRPage() {
   const enterpriseFeatures = [
@@ -56,6 +57,14 @@ export default function QSRPage() {
     },
   ];
 
+  const handleGetStarted = () => {
+    window.open("https://app.athenapro.ai", "_blank");
+  };
+
+  const handleLearnMore = () => {
+    window.open("/#features", "_self");
+  };
+
   return (
     <>
       <Header />
@@ -75,8 +84,12 @@ export default function QSRPage() {
                 and quality consistent.
               </p>
               <div className="flex gap-4">
-                <Button className="gap-2">Get Started</Button>
-                <Button variant="tertiary">Learn More</Button>
+                <Button className="gap-2" onClick={handleGetStarted}>
+                  Get Started
+                </Button>
+                <Link href="/#features"><Button variant="tertiary">
+                  Learn More
+                </Button></Link>
               </div>
             </div>
             <div className="relative">
@@ -172,7 +185,7 @@ export default function QSRPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-6">
+      <section id="features-section" className="py-20 px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-[#36a6e2]">
