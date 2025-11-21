@@ -78,7 +78,7 @@ export default function HospitalityPage() {
                 <Button className="gap-2" onClick={handleGetStarted}>
                   Get Started
                 </Button>
-                <Link href="/#features"><Button variant="tertiary">
+                <Link href="#features"><Button variant="tertiary">
                   Learn More
                 </Button></Link>
               </div>
@@ -184,7 +184,7 @@ export default function HospitalityPage() {
       </section>
 
       {/* Enterprise Features Section */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-20 px-6 bg-background" id="features">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-[#36a6e2]">
