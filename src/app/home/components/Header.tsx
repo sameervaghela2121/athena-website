@@ -43,13 +43,19 @@ const Header = () => {
     <>
       <header
         className={`sticky top-0 z-[999] bg-transparent backdrop-blur-md transition-shadow duration-300 ${
-          isScrolled ? "bg-white/80 nav-fixed shadow-[0px_10px_20px_0px_rgba(79,35,35,0.08)]" : ""
+          isScrolled
+            ? "bg-white/80 nav-fixed shadow-[0px_10px_20px_0px_rgba(79,35,35,0.08)]"
+            : ""
         }`}
       >
         <div className="flex flex-wrap justify-between items-center p-4 mx-auto lg:container sm:px-6 lg:px-8 lg:py-4">
           <div className="flex items-center">
             <Link href="/" className="no-underline">
-              <Image src={allImgPaths.logo} alt="Logo" className="w-36 lg:w-52" />
+              <Image
+                src={allImgPaths.logo}
+                alt="Logo"
+                className="w-36 lg:w-52"
+              />
             </Link>
           </div>
           <button
@@ -63,22 +69,40 @@ const Header = () => {
           </button>
           {/* hide the section below 1024 screen */}
           <div className="hidden gap-x-6 items-center lg:flex">
-            <Link className="font-semibold text-primary-900 hover:underline" href={"/#features"}>
+            <Link
+              className="font-semibold text-primary-900 hover:underline"
+              href={"/#features"}
+            >
               Features
             </Link>
-            <Link href="/#pricing" className="font-semibold text-primary-900 hover:underline">
+            <Link
+              href="/#pricing"
+              className="font-semibold text-primary-900 hover:underline"
+            >
               Pricing
             </Link>
-            <Link href="/#contact" className="font-semibold text-primary-900 hover:underline">
+            <Link
+              href="/#contact"
+              className="font-semibold text-primary-900 hover:underline"
+            >
               Contact Us
             </Link>
-            <Link href="/retail" className="font-semibold text-primary-900 hover:underline">
+            <Link
+              href="/retail"
+              className="font-semibold text-primary-900 hover:underline"
+            >
               Retail
             </Link>
-            <Link href="/qsr" className="font-semibold text-primary-900 hover:underline">
+            <Link
+              href="/qsr"
+              className="font-semibold text-primary-900 hover:underline"
+            >
               QSR
             </Link>
-            <Link href="/hospitality" className="font-semibold text-primary-900 hover:underline">
+            <Link
+              href="/hospitality"
+              className="font-semibold text-primary-900 hover:underline"
+            >
               Hospitality
             </Link>
           </div>
@@ -112,7 +136,12 @@ const Header = () => {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
 
@@ -128,7 +157,12 @@ const Header = () => {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
 
@@ -144,10 +178,72 @@ const Header = () => {
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
 
+                  <Link
+                    href="/retail"
+                    className="flex justify-between items-center px-4 py-3 w-full text-lg font-medium text-gray-900 rounded-xl transition-all duration-200 hover:text-primary-600 hover:bg-gray-50 group"
+                  >
+                    <span>Retail</span>
+                    <svg
+                      className="w-5 h-5 text-gray-400 transition-colors group-hover:text-primary-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/qsr"
+                    className="flex justify-between items-center px-4 py-3 w-full text-lg font-medium text-gray-900 rounded-xl transition-all duration-200 hover:text-primary-600 hover:bg-gray-50 group"
+                  >
+                    <span>QSR</span>
+                    <svg
+                      className="w-5 h-5 text-gray-400 transition-colors group-hover:text-primary-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/hospitality"
+                    className="flex justify-between items-center px-4 py-3 w-full text-lg font-medium text-gray-900 rounded-xl transition-all duration-200 hover:text-primary-600 hover:bg-gray-50 group"
+                  >
+                    <span>Hospitality</span>
+                    <svg
+                      className="w-5 h-5 text-gray-400 transition-colors group-hover:text-primary-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
                 </div>
 
                 {/* Divider */}
@@ -166,7 +262,12 @@ const Header = () => {
                     className="flex justify-center items-center px-6 py-3 w-full font-semibold text-white rounded-xl shadow-md transition-all duration-200 bg-primary-600 hover:bg-primary-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                   >
                     <span>Login</span>
-                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="ml-2 w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
