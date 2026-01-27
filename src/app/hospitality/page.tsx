@@ -25,33 +25,39 @@ export default function HospitalityPage() {
     {
       icon: Scale,
       title: "Scalable",
-      description: "Powerful to serve the needs of the biggest multi-nationals, with built-in support for multi-lingual, multi-location, and up to millions of users."
+      description:
+        "Powerful to serve the needs of the biggest multi-nationals, with built-in support for multi-lingual, multi-location, and up to millions of users.",
     },
     {
       icon: Shield,
       title: "Secure",
-      description: "Enterprise-grade security with SOC 2 compliance, end-to-end encryption, and role-based access controls to protect your sensitive information."
+      description:
+        "Enterprise-grade security with SOC 2 compliance, end-to-end encryption, and role-based access controls to protect your sensitive information.",
     },
     {
       icon: Zap,
       title: "Efficient",
-      description: "Reduce information retrieval time by 80%. AI-powered instant answers mean your team spends less time searching and more time serving customers."
+      description:
+        "Reduce information retrieval time by 80%. AI-powered instant answers mean your team spends less time searching and more time serving customers.",
     },
     {
       icon: Users,
       title: "User Centric Design",
-      description: "Intuitive interface designed for frontline workers. No training required—if you can use a search engine, you can use AthenaPro."
+      description:
+        "Intuitive interface designed for frontline workers. No training required—if you can use a search engine, you can use AthenaPro.",
     },
     {
       icon: Award,
       title: "Enterprise Grade",
-      description: "Built for mission-critical operations with 99.9% uptime SLA, dedicated support, and custom deployment options including on-premise solutions."
+      description:
+        "Built for mission-critical operations with 99.9% uptime SLA, dedicated support, and custom deployment options including on-premise solutions.",
     },
     {
       icon: TrendingUp,
       title: "Innovation",
-      description: "Continuously evolving with the latest AI advancements. Regular updates ensure you're always leveraging cutting-edge knowledge management technology."
-    }
+      description:
+        "Continuously evolving with the latest AI advancements. Regular updates ensure you're always leveraging cutting-edge knowledge management technology.",
+    },
   ];
   const handleGetStarted = () => {
     window.open("https://app.athenapro.ai", "_blank");
@@ -60,7 +66,7 @@ export default function HospitalityPage() {
   return (
     <>
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-7xl">
@@ -71,21 +77,46 @@ export default function HospitalityPage() {
                 <span className="text-primary">Guest Experience</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Empower your hospitality team with instant access to guest preferences, 
-                service standards, and property information—delivering exceptional experiences every time.
+                Empower your hospitality team with instant access to guest
+                preferences, service standards, and property
+                information—delivering exceptional experiences every time.
               </p>
               <div className="flex gap-4">
                 <Button className="gap-2" onClick={handleGetStarted}>
                   Get Started
                 </Button>
-                <Link href="#features"><Button variant="tertiary">
-                  Learn More
-                </Button></Link>
+                <Link href="#features">
+                  <Button variant="tertiary">Learn More</Button>
+                </Link>
               </div>
             </div>
             <div className="relative">
               <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 backdrop-blur-sm border border-primary/20">
-                <Hotel className="w-full h-64 text-primary opacity-20" />
+                {/* <Hotel className="w-full h-64 text-primary opacity-20" /> */}
+                <video
+                  className="w-full h-96 rounded-xl object-contain shadow-2xl transform transition-all duration-500 hover:scale-105 hover:rotate-y-12 hover:shadow-3xl"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    filter: "drop-shadow(0 25px 50px rgba(54, 166, 226, 0.3))",
+                  }}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                >
+                  <source
+                    // src="/assets/videos/171125-1754-4k.mp4"
+                    src={
+                      "https://storage.googleapis.com/athena-website-app-static-assets/Hospitality-v1-0412251104.mp4"
+                    }
+                    type="video/mp4"
+                  />
+                  {/* Fallback content */}
+                  <div className="w-full h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center">
+                    {/* <Utensils className="w-32 h-32 text-primary opacity-40" /> */}
+                  </div>
+                </video>
               </div>
             </div>
           </div>
@@ -107,11 +138,12 @@ export default function HospitalityPage() {
                 Personalized Service
               </h3>
               <p className="text-white/80">
-                Access guest profiles, preferences, and history instantly. Enable your team 
-                to provide personalized service that creates memorable experiences.
+                Access guest profiles, preferences, and history instantly.
+                Enable your team to provide personalized service that creates
+                memorable experiences.
               </p>
             </div>
-            
+
             <div className="bg-white/10 border border-white/20 p-8 backdrop-blur-sm rounded-2xl">
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
                 <HeadphonesIcon className="w-8 h-8 text-white" />
@@ -120,11 +152,12 @@ export default function HospitalityPage() {
                 Concierge Excellence
               </h3>
               <p className="text-white/80">
-                Instant access to local attractions, restaurant recommendations, and property 
-                amenities. Turn every staff member into an expert concierge.
+                Instant access to local attractions, restaurant recommendations,
+                and property amenities. Turn every staff member into an expert
+                concierge.
               </p>
             </div>
-            
+
             <div className="bg-white/10 border border-white/20 p-8 backdrop-blur-sm rounded-2xl">
               <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
                 <Sparkles className="w-8 h-8 text-white" />
@@ -133,8 +166,9 @@ export default function HospitalityPage() {
                 Service Recovery
               </h3>
               <p className="text-white/80">
-                Quick access to protocols for handling complaints and special requests. 
-                Empower staff to resolve issues immediately and turn problems into opportunities.
+                Quick access to protocols for handling complaints and special
+                requests. Empower staff to resolve issues immediately and turn
+                problems into opportunities.
               </p>
             </div>
           </div>
@@ -146,36 +180,43 @@ export default function HospitalityPage() {
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-[#36a6e2]">
-              Built for <span className="text-primary">Hospitality Excellence</span>
+              Built for{" "}
+              <span className="text-primary">Hospitality Excellence</span>
             </h2>
             <p className="text-xl text-muted-foreground">
               Features that help you deliver world-class service
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-12">
             <div className="flex gap-6">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Globe className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-2xl font-semibold mb-3 text-[#36a6e2]">Multi-Property Management</h3>
+                <h3 className="text-2xl font-semibold mb-3 text-[#36a6e2]">
+                  Multi-Property Management
+                </h3>
                 <p className="text-muted-foreground">
-                  Manage knowledge across multiple properties while maintaining unique local 
-                  information. Perfect for hotel chains and resort groups.
+                  Manage knowledge across multiple properties while maintaining
+                  unique local information. Perfect for hotel chains and resort
+                  groups.
                 </p>
               </div>
             </div>
-            
+
             <div className="flex gap-6">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Award className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-2xl font-semibold mb-3 text-[#36a6e2]">Standards & Quality</h3>
+                <h3 className="text-2xl font-semibold mb-3 text-[#36a6e2]">
+                  Standards & Quality
+                </h3>
                 <p className="text-muted-foreground">
-                  Maintain brand standards across all touchpoints. Instant access to service 
-                  protocols ensures consistency in every guest interaction.
+                  Maintain brand standards across all touchpoints. Instant
+                  access to service protocols ensures consistency in every guest
+                  interaction.
                 </p>
               </div>
             </div>
@@ -189,11 +230,14 @@ export default function HospitalityPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-[#36a6e2]">
               AI-Powered Knowledge,{" "}
-              <span className="text-primary">Tailored for Enterprise Excellence</span>
+              <span className="text-primary">
+                Tailored for Enterprise Excellence
+              </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Enhance productivity with intelligent knowledge sharing, secure access controls, 
-              and tailored solutions for enterprise-wide success.
+              Enhance productivity with intelligent knowledge sharing, secure
+              access controls, and tailored solutions for enterprise-wide
+              success.
             </p>
           </div>
 
@@ -201,11 +245,16 @@ export default function HospitalityPage() {
             {enterpriseFeatures.map((feature) => {
               const IconComponent = feature.icon;
               return (
-                <div key={feature.title} className="p-8 border rounded-2xl hover:shadow-lg transition-shadow bg-white">
+                <div
+                  key={feature.title}
+                  className="p-8 border rounded-2xl hover:shadow-lg transition-shadow bg-white"
+                >
                   <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                     <IconComponent className="w-7 h-7 text-primary " />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 [color:#36a6e2]">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold mb-3 [color:#36a6e2]">
+                    {feature.title}
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
